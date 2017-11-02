@@ -26,23 +26,7 @@ use WarGaming\Api\Model\Collection;
  */
 class Tanks extends AbstractMethod
 {
-    /**
-     * @var Collection|\WarGaming\Api\Model\WoT\Tank\Tank[]
-     *
-     * @Assert\Type("WarGaming\Api\Model\Collection")
-     * @Assert\Count(
-     *      min = 1,
-     *      max = 100
-     * )
-     * @Assert\All({
-     *      @Assert\Type("WarGaming\Api\Model\WoT\Tank\Tank")
-     * })
-     *
-     * @FormData(name="tank_id", type="list", collectionLoad=true, collectionCacheLoad=true)
-     */
-    public $tanks;
-
-    /**
+     /**
      * @var int
      */
     public $cacheTtl = 86400; // 1 day

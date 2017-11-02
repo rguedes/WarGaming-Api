@@ -14,6 +14,7 @@ namespace WarGaming\Api\Method\WoT\Encyclopedia;
 use Guzzle\Http\Message\Response as GuzzleResponse;
 use WarGaming\Api\Method\AbstractProcessor;
 use WarGaming\Api\Method\MethodInterface;
+use WarGaming\Api\Model\WoT\Tank\Tank;
 
 /**
  * Tank info API processor
@@ -29,7 +30,7 @@ class TanksProcessor extends AbstractProcessor
      */
     protected function getApiUri()
     {
-        return 'wot/encyclopedia/tankinfo';
+        return 'wot/encyclopedia/tanks';
         //https://api.worldoftanks.ru/wot/encyclopedia/tanks/?application_id=cba9bfbfc93ed03d2ee25efe54a6aec6
     }
 
@@ -38,13 +39,7 @@ class TanksProcessor extends AbstractProcessor
      */
     public function parseResponse(array $data, array $fullData, GuzzleResponse $response, MethodInterface $method)
     {
-        /** @var TankInfo $method */
-        foreach ($method->tanks as $index => $tank) {
-            if (!empty($data[$tank->id])) {
-                $tank->setFullDataFromArray($data[$tank->id]);
-            } else {
-                unset ($method->tanks[$index]);
-            }
-        }
+        sort($data);
+        return $data;
     }
 }

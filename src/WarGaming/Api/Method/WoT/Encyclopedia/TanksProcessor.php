@@ -30,7 +30,7 @@ class TanksProcessor extends AbstractProcessor
     protected function getApiUri()
     {
         return 'wot/encyclopedia/tankinfo';
-        https://api.worldoftanks.ru/wot/encyclopedia/tanks/?application_id=cba9bfbfc93ed03d2ee25efe54a6aec6
+        //https://api.worldoftanks.ru/wot/encyclopedia/tanks/?application_id=cba9bfbfc93ed03d2ee25efe54a6aec6
     }
 
     /**
